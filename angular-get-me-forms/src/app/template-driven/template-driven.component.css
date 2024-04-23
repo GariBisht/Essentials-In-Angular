@@ -1,0 +1,10 @@
+
+/*  angular dynamic class (ng pristine  ng dirty etc) */
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+small {
+    color: red;
+}

@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="heading">Template Driven Approach</div>
+  <div class="form-container">
+    <!-- Add a Template reference variable  , 
+      & bind it with ngForm make sure you have to import the formsModule in app module 
+    
+      1- angular form tag dynamically add classses & lots of property 
+      2- ngModel bind it to the controls and we need to specify name also 
+      3- required is used for validation 
+      4- dynamic classes added by angular so we have to validate css through it 
+      username field is touched or not , we can also improve it further 
+    
+    -->
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+      <div class="form-group">
+        <label for="uname">Username</label>
+        <input
+      
+          [ngModel]="'Garima'"
+          name="uname"
+          required
+          type="text"
+          class="form-control"
+          id="uname"
+          #uname="ngModel"
+        />
+        <small *ngIf="!uname.valid && uname.touched"
+          >Username is required</small
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="emailAddress">Email address</label>
+        <input
+          ngModel
+          name="emailAddress"
+          required
+          email
+          type="email"
+          class="form-control"
+          id="emailAddress"
+          #emailAddress="ngModel"
+        />
+        <small
+          *ngIf="
+            emailAddress.errors &&
+            emailAddress.errors.required &&
+            emailAddress.touched
+          "
+          >Email Address is required</small
+        >
+        <small
+          *ngIf="
+            emailAddress.errors &&
+            emailAddress.errors.email &&
+            emailAddress.touched
+          "
+          >Email Address should be valid</small
+        >
+      </div>
+
+      <div class="d-flex">
+        <div class="form-group form-check">
+          <input
+            [ngModel]="true"
+            name="readTerms"
+            type="checkbox"
+            class="form-check-input"
+            id="readTerms"
+          />
+          <label class="form-check-label" for="readTerms"
+            >I have read terms and conditions</label
+          >
+        </div>
+<!-- Add click event on button  and pass the reference var onSubmit(myForm) ... we have to change it we use ngSubmit to onsubmit function-->
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!myForm.valid"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
