@@ -1,0 +1,8 @@
+<h2>I am Child Component</h2>
+<!-- <input type="text" [(ngModel)] = "channelName"> -->
+<!-- this shows the parent content in child component this is content projection  used in reusable widgets-->
+<ng-content></ng-content> 
+<div>
+    <!-- <h3>{{channelName}}</h3> -->
+    <h3 #childContent>{{ firstName }}</h3>
+</div>

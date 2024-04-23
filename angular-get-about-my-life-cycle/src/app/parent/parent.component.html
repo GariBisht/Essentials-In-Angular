@@ -1,0 +1,13 @@
+<!-- firstly parent constructor is called , then parent OnInit is called   -->
+<h2>I am Parent Component</h2>
+ <!-- After toggle the button Child constructor , child OnInit is called when the component loaded 
+in the dom constructor , OnIt method is called -->
+<button class="btn btn-primary" (click)="toggleChild()">Toggle Child</button>
+<!-- if we click again in the toggle button OnDestroy is called -->
+
+<input type="text" [(ngModel)]="firstName">
+<hr>
+<app-child *ngIf="isChild" [firstName]="firstName">
+    <h4  #parentContent><i>Please Subscribe Parent content</i></h4>
+    <!-- <h2>Please Subscribe for my content </h2> -->
+</app-child>
